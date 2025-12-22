@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: countries
+  datasource:
+    url: jdbc:postgresql://localhost:5432/country
+    username: postgres
+    password: secret
+    hikari:
+      schema: country
+  flyway:
+    locations: classpath:db/migration/country
+    schemas: country
+server:
+  port: 8081

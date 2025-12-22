@@ -1,0 +1,15 @@
+services:
+  db:
+    container_name: country
+    image: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - country:/var/lib/postgresql
+    environment:
+      POSTGRES_DB: country
+      POSTGRES_PASSWORD: secret
+
+volumes:
+  country:
+    name: country
