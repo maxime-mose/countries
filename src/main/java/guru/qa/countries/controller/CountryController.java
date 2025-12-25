@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/country")
@@ -20,18 +21,18 @@ public class CountryController {
     this.countryService = countryService;
   }
 
-  @GetMapping("all")
+  @GetMapping
   public List<CountryDto> getAll() {
     return countryService.getAll();
   }
 
-  @PostMapping("create")
-  public void create(@Valid @RequestBody CountryDto country) {
-    countryService.create(country);
+  @PostMapping
+  public Optional<CountryDto> create(@Valid @RequestBody CountryDto country) {
+    return countryService.create(country);
   }
 
-  @PutMapping("update/{id}")
-  public void update(@PathVariable("id") String id, @Valid @RequestBody UpdateCountryDto country) {
-    countryService.update(id, country);
+  @PutMapping("{code}")
+  public Optional<CountryDto> update(@PathVariable("code") String code, @Valid @RequestBody UpdateCountryDto country) {
+    return countryService.update(code, country);
   }
 }

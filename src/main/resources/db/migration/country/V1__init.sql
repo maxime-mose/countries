@@ -1,12 +1,12 @@
 CREATE TABLE IF NOT EXISTS country
 (
-    id   VARCHAR(3) PRIMARY KEY,
+    code VARCHAR(3) PRIMARY KEY,
     name VARCHAR(255) NOT NULL
 );
 
 TRUNCATE country;
 
-INSERT INTO country (id, name)
+INSERT INTO country (code, name)
 VALUES ('FJ', 'Fiji'),
        ('TZ', 'Tanzania'),
        ('EH', 'Western Sahara'),
